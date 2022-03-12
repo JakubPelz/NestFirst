@@ -16,8 +16,8 @@ export class ItemsController {
   constructor(private readonly itemsService: ItemsService) {}
 
   @Get()
-  findAll(): string {
-    return 'bla';
+  findAll(): Item[] {
+    return this.itemsService.findAll();
   }
 
   @Get(':id')
