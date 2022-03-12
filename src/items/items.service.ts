@@ -5,26 +5,13 @@ import { InjectModel } from '@nestjs/mongoose';
 
 @Injectable()
 export class ItemsService {
-  private readonly items: Item[] = [
-    {
-      id: '324250924',
-      name: 'ASODJI',
-      qty: 100,
-      description: 'ASojdjasjojsad',
-    },
-    {
-      id: '324250912321324',
-      name: 'ASODJI',
-      qty: 100,
-      description: 'ASojdjasjojsad',
-    },
-  ];
+  constructor(@InjectModel('Item') private readonly itemModel: Model<Item>) {}
 
-  findAll(): Item[] {
-    return this.items;
+  async findAll(): Promise<Item[]> {
+    return await this.itemModel.find();
   }
 
-  find(id: string): Item {
-    return this.items.find((item) => item.id === id);
+  async find(id: string): Promise<Item> {
+    return await this.itemModel.findOne({ _id: id });
   }
 }

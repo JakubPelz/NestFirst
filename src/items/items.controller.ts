@@ -13,7 +13,7 @@ import { Item } from './interfaces/item.interface';
 
 @Controller('items')
 export class ItemsController {
-  constructor(private readonly itemsService: ItemsService) {}
+  /* constructor(private readonly itemsService: ItemsService) {}
 
   @Get()
   findAll(): Item[] {
@@ -23,5 +23,5 @@ export class ItemsController {
   @Get(':id')
   findOne(@Param('id') id): string {
     return `${id} item`;
-  }
+  } */
 }
